@@ -2,6 +2,7 @@ import React from 'react';
 import $ from 'jquery';
 import { API_ROOT } from '../constants';
 import { Form, Input, Button, message } from 'antd';
+import { Link } from 'react-router-dom';
 
 const FormItem = Form.Item;
 
@@ -126,6 +127,7 @@ class RegistrationForm extends React.Component {
         <FormItem {...tailFormItemLayout}>
           <Button type="primary" htmlType="submit">Register</Button>
         </FormItem>
+        <p>I already have an account, go back to<Link to="/login">Login</Link></p>
       </Form>
     );
   }
