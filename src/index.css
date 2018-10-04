@@ -3,6 +3,7 @@
 @import './styles/Register.css';
 @import './styles/Login.css';
 @import './styles/Header.css';
+@import './styles/Home.css';
 
 body {
   margin: 0;
