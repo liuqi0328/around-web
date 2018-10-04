@@ -24,7 +24,11 @@ class RegistrationForm extends React.Component {
                 password: values.password
             })
         }).then(
-            (response) => { message.success('hello'); },
+            (response) => { 
+              console.log(this.props);
+              message.success(response);
+              this.props.history.push('/login');
+            },
             (response) => { message.error(response.responseText); }
         )
         
@@ -126,8 +130,8 @@ class RegistrationForm extends React.Component {
         </FormItem>
         <FormItem {...tailFormItemLayout}>
           <Button type="primary" htmlType="submit">Register</Button>
+          <p>I already have an account, go back to<Link to="/login">Login</Link></p>
         </FormItem>
-        <p>I already have an account, go back to<Link to="/login">Login</Link></p>
       </Form>
     );
   }
