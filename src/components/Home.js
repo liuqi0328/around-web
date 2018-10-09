@@ -11,7 +11,9 @@ const operations = <Button>Extra Action</Button>;
 export class Home extends React.Component {
     state = {
         error: '',
+        posts: [],
         loadingGeoLocation: false,
+        loadingPosts: false,
     }
 
     componentDidMount() {
@@ -33,7 +35,7 @@ export class Home extends React.Component {
 
     onSuccessLoadGeoLocation = (position) => {
         console.log(position);
-        this.setState({loadingGeoLocation: false, error: ''});
+        this.setState({loadingPosts: true, loadingGeoLocation: false, error: ''});
         const {latitude, longitude} = position.coords;
         localStorage.setItem(POS_KEY, JSON.stringify({latitude, longitude}));
         this.loadNearbyPosts();
@@ -48,7 +50,7 @@ export class Home extends React.Component {
         if (this.state.error) {
           return <div>{this.state.error}</div>;
         } else if (this.state.loadingGeoLocation) {
-          return <Spin tip="Loading geo location..."/>;
+          return <Spin tip="Loading geolocation..."/>;
         } else if (this.state.loadingPosts) {
           return <Spin tip="Loading posts..."/>;
         } else if (this.state.posts && this.state.posts.length > 0) {
@@ -88,7 +90,11 @@ export class Home extends React.Component {
           console.log(error);
         });
       }
-     
+    
+    loadNearbyPosts = () => {
+
+    }
+
     render() {
         return (
             <Tabs tabBarExtraContent={operations} className="main-tabs">
