@@ -1,10 +1,10 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { Header } from './Header';
 import { Main } from './Main';
 import { TOKEN_KEY } from '../constants';
 import '../styles/App.css';
 
-class App extends Component {
+class App extends React.Component {
   state = {
     isLoggedIn: !!localStorage.getItem(TOKEN_KEY),
   }
