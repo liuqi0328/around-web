@@ -5,7 +5,7 @@ import { WrappedCreatePostForm } from './CreatePostForm.js';
 import { POS_KEY, API_ROOT, AUTH_PREFIX, TOKEN_KEY } from '../constants.js';
 
 export class CreatePostButton extends React.Component {
-    state = { 
+    state = {
         visible: false,
         confirmLoading: false,
     }
@@ -15,7 +15,7 @@ export class CreatePostButton extends React.Component {
         visible: true,
       });
     }
-  
+
     handleOk = () => {
       this.setState({confirmLoading: true});
       this.form.validateFields((err, values) => {
@@ -29,7 +29,7 @@ export class CreatePostButton extends React.Component {
               formData.set('lon', longitude);
               formData.set('message', values.message);
               formData.set('image', values.image[0].originFileObj);
-              
+
               $.ajax({
                   url: `${API_ROOT}/post`,
                   method: 'POST',
@@ -38,7 +38,7 @@ export class CreatePostButton extends React.Component {
                       Authorization: `${AUTH_PREFIX} ${localStorage.getItem(TOKEN_KEY)}`,
                   },
                   processData: false,
-                  contetType: false,
+                  contentType: false,
                   dataType: 'text',
               }).then(
                   () => {
@@ -58,7 +58,7 @@ export class CreatePostButton extends React.Component {
     //     visible: false,
     //   });
     }
-  
+
     handleCancel = () => {
       console.log('clicked cancel button');
       this.setState({

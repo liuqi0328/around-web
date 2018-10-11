@@ -17,10 +17,10 @@ export class Home extends React.Component {
 
     componentDidMount() {
         this.setState({loadingGeoLocation: true, error: ''});
-        this.getGeoLocatioin();
+        this.getGeoLocation();
     }
 
-    getGeoLocatioin = () => {
+    getGeoLocation = () => {
         if ("geolocation" in navigator) {
             navigator.geolocation.getCurrentPosition(
                 this.onSuccessLoadGeoLocation,
