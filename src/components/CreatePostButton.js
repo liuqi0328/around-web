@@ -2,7 +2,7 @@ import React from 'react';
 import $ from 'jquery';
 import { Button, Modal, message } from 'antd';
 import { WrappedCreatePostForm } from './CreatePostForm.js';
-import { POS_KEY, API_ROOT, AUTH_PREFIX, TOKEN_KEY } from '../constants.js';
+import { POS_KEY, API_ROOT, AUTH_PREFIX, TOKEN_KEY, LOC_SHAKE } from '../constants.js';
 
 export class CreatePostButton extends React.Component {
     state = {
@@ -25,7 +25,7 @@ export class CreatePostButton extends React.Component {
               console.log(`${latitude} ${longitude}`);
 
               const formData = new FormData();
-              formData.set('lat', latitude);
+              formData.set('lat', latitude + Math.random() * 2 * LOC_SHAKE - LOC_SHAKE );
               formData.set('lon', longitude);
               formData.set('message', values.message);
               formData.set('image', values.image[0].originFileObj);

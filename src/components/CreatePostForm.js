@@ -23,7 +23,7 @@ class CreatePostForm extends React.Component {
             wrapperCol: { span: 14 },
         };
         return (
-            <Form layout="vertical"> 
+            <Form layout="vertical">
                 <FormItem
                     {...formItemLayout}
                     label="Message"
